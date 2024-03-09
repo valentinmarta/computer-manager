@@ -20,3 +20,22 @@ class Computer:
     def change_os(self, new_os):
         self.os = new_os
 
+class Desktop(Computer):
+
+    def __init__(self, id, peripheral_list, os, brand, number_cables):
+
+        super().__init__(id, peripheral_list, os, brand)
+        self.number_cables = number_cables
+
+    def present_d(self):
+        print(f"Number of cables: {self.number_cables}")
+
+class Notebook(Computer):
+
+    def __init__(self, id, peripheral_list, os, brand, weight):
+
+        super().__init__(id, peripheral_list, os, brand)
+        self.weight = weight
+
+    def present_n(self):
+        print(f"computer weight: {self.weight}")
