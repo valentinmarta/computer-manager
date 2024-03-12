@@ -1,5 +1,8 @@
+from manager import *
 def main():
     
+    object = Manager()
+
     while True:
 
         op = input("""
@@ -11,9 +14,9 @@ def main():
                     option: """)
         
         if op == "1":
-            pass
+            object.create_computer()
         elif op == "2":
-            pass
+            object.present_computer()
         elif op == "3":
             pass
         elif op == "4":
