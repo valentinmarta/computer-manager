@@ -20,7 +20,7 @@ def main():
         elif op == "3":
             object.change_os()
         elif op == "4":
-            pass
+            object.show_per()
         elif op == "5":
             break
         else:

@@ -30,12 +30,12 @@ class Manager:
 
         while True:
 
-            per = input("type a peripheral to add to the computer (exit to finish): ").lower()
+            per = input("Type a peripheral to add to the computer (exit to finish): ").lower()
 
             if per == "exit":
 
                 if not list:
-                    print("you have to add at least one peripheral.")
+                    print("You have to add at least one peripheral.")
                 else:
                     return list
             else:
@@ -172,6 +172,30 @@ class Manager:
 
     #fourth option
     def show_per(self):
-        pass
+        
+        if not self.computer_list:
+            print("The list is empty. First create a computer.")
+            return
+        
+        while True:
 
-    #try to add another option in case the user wants to present all the computers on the list
+            flag = True
+
+            try:
+                id = int(input("Type the id of the computer: "))
+            except Exception as e:
+                print(f"Error: {e}")
+                flag = False
+
+            for pc in self.computer_list:
+                if id == pc.id:
+                    for per in pc.peripheral_list:
+                        print(per, end = " ")
+
+                    return
+                
+            if flag:
+                print("That id doesn't exist. Please try again.")
+
+    #try to add another option in case the user wants to present all the computers on the list.
+    #and another one that allows the user to add more pheripherals to a computer that already exist.
