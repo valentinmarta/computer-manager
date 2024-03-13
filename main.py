@@ -18,7 +18,7 @@ def main():
         elif op == "2":
             object.present_computer()
         elif op == "3":
-            pass
+            object.change_os()
         elif op == "4":
             pass
         elif op == "5":

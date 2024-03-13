@@ -121,7 +121,7 @@ class Manager:
     def present_computer(self):
                 
         if not self.computer_list:
-            print("The computer list is empty.")
+            print("The computer list is empty. First create a computer")
             return
 
         while True:
@@ -147,7 +147,28 @@ class Manager:
 
     #third option
     def change_os(self):
-        pass
+        if not self.computer_list:
+            print("The list is empty. First create a computer")
+            return
+        
+        while True:
+                
+            flag = True
+
+            try:
+                id = int(input("Type the id of the computer: "))
+            except Exception as e:
+                print(f"Error: {e}")
+                flag = False
+
+            for pc in self.computer_list:
+                if id == pc.id:
+                    new_os = self.os()
+                    pc.change_os(new_os)
+                    return
+                
+            if flag:
+                print("That id doesn't exist. Please try again.")
 
     #fourth option
     def show_per(self):
