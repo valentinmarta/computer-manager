@@ -197,5 +197,19 @@ class Manager:
             if flag:
                 print("That id doesn't exist. Please try again.")
 
-    #try to add another option in case the user wants to present all the computers on the list.
+    def show_all_computer(self):
+
+        for pc in self.computer_list:
+
+            type = pc.return_type()
+            pc.present_type()
+            pc.present()
+
+            if type == "Notebook":
+                pc.present_n()
+            elif type == "Desktop":
+                pc.present_d()
+            
+            print("\n")
+
     #and another one that allows the user to add more pheripherals to a computer that already exist.
