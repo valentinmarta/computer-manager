@@ -30,7 +30,7 @@ class Manager:
 
         while True:
 
-            per = input("Type a peripheral to add to the computer (exit to finish): ").lower()
+            per = input("Type a peripheral to add to the computer (exit to finish): ").lower().strip()
 
             if per == "exit":
 
@@ -38,6 +38,8 @@ class Manager:
                     print("You have to add at least one peripheral.")
                 else:
                     return list
+            elif not per:
+                print("You have to write something, please try again.")
             else:
                 list.append(per)
 
@@ -197,6 +199,7 @@ class Manager:
             if flag:
                 print("That id doesn't exist. Please try again.")
 
+    #fifth option
     def show_all_computer(self):
 
         for pc in self.computer_list:
@@ -212,4 +215,31 @@ class Manager:
             
             print("\n")
 
-    #and another one that allows the user to add more pheripherals to a computer that already exist.
+    #sixth option
+    def add_peripherals(self):
+
+        while True:
+
+            flag = True
+
+            try:
+                id = int(input("Type the id of the computer: "))
+            except Exception as e:
+                print(f"Error: {e}")
+                flag = False
+
+            for pc in self.computer_list:
+                if id == pc.id:
+
+                    while True:
+                        per = input("Type the peripheral you want to add to the computer (exit to finish): ").lower().strip()
+
+                        if per == "exit":
+                            return
+                        elif not per:
+                            print("You have to write something, please try again.")
+                        else:
+                            pc.peripheral_list.append(per)
+
+            if flag:
+                print("That id doesn't exist. Please try again.")
